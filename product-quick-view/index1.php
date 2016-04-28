@@ -1,0 +1,389 @@
+<?php
+include "../lookbox/connect.php";
+// Inialize session
+session_start();
+
+// Check, if username session is NOT set then this page will jump to login page
+if (!isset($_SESSION['id'])) {
+header('Location: ../lookbox/fpage.php');
+}
+$i= $_SESSION['id'];
+$result3 = mysqli_query($con,"SELECT * FROM user where email='$i'");
+$row3 = mysqli_fetch_assoc($result3);
+$fname = $row3['fname'];
+$lname = $row3['lname'];
+$day = $row3['day'];
+$email=$row3['email'];
+$month = $row3['month'];
+$year = $row3['year'];
+$gender = $row3['gender'];
+$picture= $row3['picture'];
+$status= $row3['status'];
+
+?>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>Search-Box</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+<!--This includes bootstrap-->     
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	
+	
+	
+	
+	
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+  	
+	<title>Product Quick View </title>
+<style>
+
+
+
+.bar{ 
+position: absolute;
+top: 150px;
+left: 58px;
+height: 80px;
+width: 800px;
+}
+
+
+.navbar-wrapper {
+background-color: rgba(3, 23, 101, 0.81);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin-top: 20px;
+}
+
+.navbar-wrapper .container {
+
+ padding-left: 0;
+  padding-right: 0;
+}
+.navbar-wrapper .navbar {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.navbar-content
+{
+    width:320px;
+    padding: 15px;
+    padding-bottom:0px;
+}
+.navbar-content:before, .navbar-content:after
+{
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.navbar-nav.navbar-right:last-child {
+margin-right: 15px !important;
+}
+.navbar-footer 
+{
+    background-color:#DDD;
+}
+
+.navbar-footer-content { padding:15px 15px 15px 15px; }
+.dropdown-menu {
+padding: 0px;
+overflow: hidden;
+}
+
+.line{
+border: 1px solid blue;
+height: 1px;
+width: 800px;
+}
+
+
+
+
+
+
+</style>
+
+</head>
+
+<body style="background-color: #CCFFFF">
+<script>
+
+$(document).ready(function(e){
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+		e.preventDefault();
+		var param = $(this).attr("href").replace("#","");
+		var concept = $(this).text();
+		$('.search-panel span#search_concept').text(concept);
+		$('.input-group #search_param').val(param);
+	});
+});
+</script>	
+	
+	<header>
+		<h1 style="font-size: 80px;color: rgba(3, 23, 101, 0.81);font-family: Arial, Helvetica, sans-serif;"><b>Lookbox </b></h1>
+	</header>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
+                                        class="icon-bar"></span><span class="icon-bar"></span>
+                                </button>
+                                
+                                
+                            </div>
+                            <div class="navbar-collapse collapse">
+ 
+                                <ul class="nav navbar-nav">
+                                    <li><a href="index1.php">Home</a></li>
+                                </ul>
+                               
+                                 <ul class="nav navbar-nav">
+                                    <li><a href="sample.php">My Profile</a></li>
+                                </ul>
+             
+                                 <ul class="nav navbar-nav">
+                                    <li><a href="../logout.php">Logout</a></li>
+                                </ul>
+			 
+ 							   
+
+								
+                               <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account
+                                        <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <div class="navbar-content">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                             <?php
+                                                                   if($row3['picture'] == "")
+                                                                        echo "<img width='120' height='120' src='default.jpg' alt='Default Profile Pic'>";
+                                                                   else {
+                                                                        echo "<img width='120' height='120' src='".$row3['picture']."' alt='Profile Pic'>";
+                                                                        }
+                                
+                                                              ?>
+                                                            
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <span> sharang </span>
+                                                            <p class="text-muted small">
+                                                                <?php echo $email ?></p>
+                                                            <div class="divider">
+                                                            </div>
+                                                            <a href="updatewallet.php" class="btn btn-primary btn-sm active">Update wallet</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="navbar-footer">
+                                                    <div class="navbar-footer-content">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <a href="changepassword.php" class="btn btn-default btn-sm">Change Passowrd</a>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <a href="logout.php" class="btn btn-default btn-sm pull-right">Sign Out</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+	
+	
+	<div class="bar">
+    <div class="container">
+    <div class="row">    
+        <div class="col-xs-8 col-xs-offset-2">
+		    <div class="input-group">
+                <div class="input-group-btn search-panel">
+                    
+					
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    	<span id="search_concept">Filter by</span> <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu" role="menu">
+                     <li><a href="#contains">Tailor</a></li>
+                      <li><a href="#its_equal">Restaurant</a></li>
+                      <li><a href="#greather_than">Plumber</a></li>
+                      <li><a href="#less_than">House keeping </a></li>
+                      
+                      <li><a href="#all">Grocery</a></li>
+                    </ul>
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="text" class="form-control" name="x" placeholder="Search term...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+        </div>
+	</div>
+</div>
+
+
+	</div>	
+	
+ <header>
+		<h1 style="font-size: 30px;color: rgba(3, 23, 101, 0.81);font-family: Arial, Helvetica, sans-serif;"><b>TAILOR </b></h1>
+	</header>
+
+	<ul class="cd-items cd-container">
+		<li class="cd-item">
+			<img src="img/item-1.jpg" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="img/item-1.jpg" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="img/item-1.jpg" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="img/item-1.jpg" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+
+	</ul> <!-- cd-items -->
+ 
+  
+<div class="line">
+</div>
+ <header>
+		<h1 style="font-size: 30px;color: rgba(3, 23, 101, 0.81);font-family: Arial, Helvetica, sans-serif;"><b>Restaurant </b></h1>
+	</header>
+
+</div>
+	<ul class="cd-items cd-container">
+		<li class="cd-item">
+			<img src="img/item-1.jpg" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="img/item-1.jpg" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="img/item-1.jpg" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+        
+		<li class="cd-item">
+			<img src="img/item-1.jpg" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+
+		
+	</ul> <!-- cd-items -->
+ 
+<div class="line">
+</div>
+
+ <header>
+		<h1 style="font-size: 30px;color: rgba(3, 23, 101, 0.81);font-family: Arial, Helvetica, sans-serif;"><b>Grocery </b></h1>
+	</header>
+
+
+ <ul class="cd-items cd-container">
+		<li class="cd-item">
+			<img src="img/item-1.jpg" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="img/item-1.jpg" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+		<li class="cd-item">
+			<img src="img/item-1.jpg" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+        
+		<li class="cd-item">
+			<img src="img/item-1.jpg" alt="Item Preview">
+			<a href="#0" class="cd-trigger">Quick View</a>
+		</li> <!-- cd-item -->
+
+
+		
+	</ul> <!-- cd-items -->
+	<div class="cd-quick-view">
+		<div class="cd-slider-wrapper">
+			<ul class="cd-slider">
+				<li class="selected"><img src="img/item-1.jpg" alt="Product 1"></li>
+				<li><img src="img/item-2.jpg" alt="Product 2"></li>
+				<li><img src="img/item-3.jpg" alt="Product 3"></li>
+			</ul> <!-- cd-slider -->
+
+			<ul class="cd-slider-navigation">
+				<li><a class="cd-next" href="#0">Prev</a></li>
+				<li><a class="cd-prev" href="#0">Next</a></li>
+			</ul> <!-- cd-slider-navigation -->
+		</div> <!-- cd-slider-wrapper -->
+
+		<div class="cd-item-info">
+			<h2>BURGER KING</h2>
+			<p>WE MAKE AND SELL BURGER</p>
+
+			<ul class="cd-item-action">
+				<li><button class="add-to-cart">OPEN PROFILE</button></li>					
+				<li><a href="#0">CALL US</a></li>	
+			</ul> <!-- cd-item-action -->
+		</div> <!-- cd-item-info -->
+		<a href="#0" class="cd-close">Close</a>
+	</div> <!-- cd-quick-view -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/velocity.min.js"></script>
+<script src="js/main.js"></script>
+ <!-- Resource jQuery -->
+</body>
+</html>

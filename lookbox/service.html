@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Company Profile-LOOKBOX</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
+
+    <link href="css/business-casual.css" rel="stylesheet">
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body background="bg.jpg">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_IN/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <div class="brand">BURGER KING</div>
+    <div class="address-bar">23-Cyber City | Saket, South Delhi | Since 1997</div>
+
+    
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">BURGER KING</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="window.html"><p class="text-danger">Window</p></a>
+                    </li>
+                    <li>
+                        <a href="service.html"><p class="text-danger">Services</p></a>
+                    </li>
+                    <li>
+                        <a href="review.html"><p class="text-danger">Reviews</p></a>
+                    </li>
+                    <li>
+                        <a href="contact.html"><p class="text-danger">Contact Us</p></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="text-danger">Order now!</h2>
+                        <h4 class="text-danger">Select your burger!</h4>
+                    
+                    <hr> 
+                </div>
+                <div class="col-md-6">
+                    <img class="img-responsive img-border-left" src="img/c1.jpg" alt="">
+                </div>
+                <div class="col-md-6">
+                <div class="container">
+  <h2 class="text-danger">Have a Burger :)</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Order Now!</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+           <h2 class="text-danger">We do COD!</h2>
+ 
+		  <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Burger King</h4>
+        </div>
+        <div class="modal-body">
+          
+<div class="container">
+  <form class="form">
+<fieldset>
+
+<!-- Form Name -->
+<legend>order</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Name</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" placeholder="name" class="form-control input-md" required="" type="text">
+  <span class="help-block">ex: sharang</span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Address</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" placeholder="address" class="form-control input-md" required="" type="text">
+  <span class="help-block">ex:18-street new york</span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">mobile no.</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" placeholder="mobile no." class="form-control input-md" required="" type="text">
+  <span class="help-block">ex:9899999999</span>  
+  </div>
+</div>
+
+<!-- Multiple Checkboxes -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="checkboxes">menu</label>
+  <div class="col-md-4">
+  <div class="checkbox">
+    <label for="checkboxes-0">
+      <input name="checkboxes" id="checkboxes-0" value="1" type="checkbox">
+      whopper
+    </label>
+	</div>
+  <div class="checkbox">
+    <label for="checkboxes-1">
+      <input name="checkboxes" id="checkboxes-1" value="2" type="checkbox">
+      mac chicken
+    </label>
+	</div>
+  <div class="checkbox">
+    <label for="checkboxes-2">
+      <input name="checkboxes" id="checkboxes-2" value="3" type="checkbox">
+      mac maharaja
+    </label>
+	</div>
+  <div class="checkbox">
+    <label for="checkboxes-3">
+      <input name="checkboxes" id="checkboxes-3" value="4" type="checkbox">
+      veg zinger
+    </label>
+	</div>
+  <div class="checkbox">
+    <label for="checkboxes-4">
+      <input name="checkboxes" id="checkboxes-4" value="5" type="checkbox">
+      non veg burger
+    </label>
+	</div>
+  <div class="checkbox">
+    <label for="checkboxes-6">
+      <input name="checkboxes" id="checkboxes-5" value="6" type="checkbox">
+      chicken mcgrill
+    </label>
+	</div>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-6 control-label" for="textarea">Instructions</label>
+  <div class="col-md-6">                     
+    <textarea class="form-control" id="textarea" name="textarea">suggestions and instructions!</textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-6 control-label" for="Done">place order</label>
+  <div class="col-md-6">
+    <button id="Done" name="Done" class="btn btn-info">Button</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+</div>
+
+
+		  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+				</div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+</div>
+		
+	
+    
+			<div class="row">
+            <div class="box">
+        
+			<div class="table-responsive">   
+  <table class="table table-hover">
+    <thead>
+      <tr  class="text-danger">
+        <th>ITEM NAME</th>
+        <th>TYPE</th>
+        <th>PRICE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-primary">
+        <td>John</td>
+        <td>Doe</td>
+        <td>100</td>
+      </tr>
+      <tr class="text-primary">
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>100</td>
+      </tr>
+      <tr class="text-primary">
+        <td>July</td>
+        <td>Dooley</td>
+        <td>100</td>
+      </tr>
+	  <tr class="text-primary">
+        <td>July</td>
+        <td>Dooley</td>
+        <td>100</td>
+      </tr>
+	  <tr class="text-primary">
+        <td>July</td>
+        <td>Dooley</td>
+        <td>100</td>
+      </tr>
+	  <tr class="text-primary">
+        <td>July</td>
+        <td>Dooley</td>
+        <td>100</td>
+      </tr>
+	  <tr class="text-primary">
+        <td>July</td>
+        <td>Dooley</td>
+        <td>100</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  
+        </div>        </div>        </div>
+ 
+	
+	
+    <footer>
+        
+            <div class="box1">
+                <div class="col-lg-12 text-center">
+                    <h1 class="text-danger" >LOOK-BOX<img src="img/logo.png" style="width:60px; height:60px;"></h1>
+                </div>
+            </div>
+        
+    </footer>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    
+    
+    
+    
+        <link rel="stylesheet" href="css/style1.css">
+
+   <script type="text/javascript">
+    function validate()
+    {
+    var a=document.forms["login1"]["email"].value;
+    var b=document.forms["login1"]["password"].value;
+    if ((a==null || a=="") && (b==null || b=="") )
+      {
+      alert("All Field must be filled out");
+      return false;
+      }
+    if (a==null || a=="")
+      {
+      alert("Email must be filled out");
+      return false;
+      }
+    if (b==null || b=="")
+      {
+      alert("Password must be filled out");
+      return false;
+      }
+    
+    }
+  </script> 
+    
+    
+  </head>
+
+  <body style="background-color:gray">
+
+    <span href="#" class="button" id="toggle-login" style="background-color:black">Log in</span>
+
+<div id="login">
+  <div id="triangle"></div>
+  <h1>Log in</h1>
+  <form name="login1" method="post" action="loginproc.php" onsubmit="return validate()" style="background-color:black">
+    <input type="email" placeholder="Email" name="email" />
+    <input type="password" placeholder="Password" name="password" />
+    <input type="submit" value="Log in" />
+  </form>
+    
+    <?php 
+             if(isset($_GET['feedback']))
+         
+                {
+                  $message= $_GET['feedback'];
+                    echo "<script type='text/javascript'>alert('$message');</script>";
+                }
+
+                  
+        ?>
+</div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
